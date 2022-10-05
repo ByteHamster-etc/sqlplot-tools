@@ -95,6 +95,12 @@ jobs:
           echo --- Installing Boost.Regex
           brew install boost
 
+      - name: Install PostgreSQL
+        if: ${{startsWith(matrix.config.os, 'macos')}}
+        run: |
+          echo --- Installing PostgreSQL
+          brew install postgresql
+
       - name: Install gcc version
         if: ${{matrix.config.gcc_install}}
         run: |
